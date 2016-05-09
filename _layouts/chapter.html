@@ -1,0 +1,43 @@
+---
+layout: default
+---
+
+<div class="left-sidebar">
+  <h1 class="page-heading">Contents</h1>
+
+  <ul class="post-list">
+    {% assign chapters = site.chapters | sort: 'ref' %}
+    {% for chapter in chapters %}
+      <li>
+        <h2>
+          <a class="post-link" href="{{ chapter.url | prepend: site.baseurl }}">{{chapter.ref }} {{ chapter.title }}</a>
+        </h2>
+      </li>
+    {% endfor %}
+  </ul>
+</div>
+
+
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h2 class="post-title" itemprop="name headline">{{ page.title }}</h2>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    {{ content }}
+
+    <br/><hr/><br/>
+
+    {% if page.previous.url %}
+      <a href="{{page.previous.url}}">&lt; Previous</a>
+    {% endif %}
+
+    <span style="width:5em;">&nbsp;</span>
+
+    {% if page.next.url %}
+      <a href="{{page.next.url}}">Next &gt;</a>
+    {% endif %}
+  </div>
+
+</article>
