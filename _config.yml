@@ -1,0 +1,33 @@
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely need to edit after that.
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'jekyll serve'. If you change this file, please restart the server process.
+
+# Site settings
+title: Formbuilder User Guide
+description: > # this means to ignore newlines until "baseurl:"
+  Formbuilder was created for Public Health Wales as a bespoke tool for creating forms for data collection
+  questionaires and self-assessment.  Reports can be created to present the data in a friendly format.
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "http://localhost:4000" # the base hostname & protocol for your site
+version: 0.2
+status: draft
+author: Jake Bourne
+date: 05-Jan-2016
+distribution: Martin Holloway (PHW), Laura Jones (PHW), Andrew Graham (NWIS)
+
+collections:
+  chapters:
+    output: true
+
+defaults:
+  - scope:
+      path: ""
+      type: chapters
+    values:
+      layout: chapter
+
+# Build settings
+markdown: kramdown

@@ -1,0 +1,43 @@
+---
+layout: default
+---
+<div class="home">
+
+
+<div class="left-sidebar">
+
+  <h1 class="page-heading">Contents</h1>
+
+  <ul class="post-list">
+
+    {% assign chapters = site.chapters | sort: 'ref' %}
+    {% for chapter in chapters %}
+      <li>
+        <h2>
+          <a class="post-link" href="{{ chapter.url | prepend: site.url }}">{{chapter.ref}} {{ chapter.title }}</a>
+        </h2>
+      </li>
+    {% endfor %}
+  </ul>
+</div>
+
+<article class="post">
+      <center>
+        <h1>{{site.title}}</h1>
+        <h2>Public Health Wales</h2>
+      </center>
+        <div style="margin-top:30%;margin-left:30em;">
+           <p><strong>Author:</strong>{{site.author}}</p>
+           <p><strong>Date:</strong>{{site.date}}</p>
+           <p><strong>Version:</strong>{{site.version}}</p>
+           <p><strong>Status:</strong>{{site.status}}</p>
+           <!--- <strong>Distribution:</strong>
+           <div style="margin-left:2em;">
+              {% for reviewer in site.data.distribution %}
+                {{reviewer.name}} ({{reviewer.org}}) <br/>
+              {% endfor %}
+          </div>
+      </div>  --->
+</article>
+
+</div>

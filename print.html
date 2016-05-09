@@ -1,0 +1,47 @@
+---
+layout: print
+---
+<article style="page-break-after:always;">
+  <div style="margin-top:30%;margin-bottom:10px;">
+      <center>
+        <h1>{{site.title}}</h1>
+        <h2>Public Health Wales</h2>
+      </center>
+      <div style="margin-top:20%;margin-bottom:10px;">
+          <div style="margin-left:20em;">
+             <p><strong>Author:</strong>{{site.author}}</p>
+             <p><strong>Date:</strong>{{site.date}}</p>
+             <p><strong>Version:</strong>{{site.version}}</p>
+             <p><strong>Status:</strong>{{site.status}}</p>
+             <!---<strong>Distribution:</strong>
+             <div style="margin-left:2em;">
+                {% for reviewer in site.data.distribution %}
+                  {{reviewer.name}} ({{reviewer.org}}) <br/>
+                {% endfor %}
+            </div>--->
+          </div>
+      </div>
+  </div>
+</article>
+
+<article style="page-break-after:avoid;">
+  <h1 class="page-heading">Contents</h1>
+  <ul style="list-style-type:none;">
+    {% assign chapters = site.chapters | sort: 'ref' %}
+    {% for chapter in chapters %}
+      <li>
+          {{chapter.ref }} {{ chapter.title }}
+      </li>
+    {% endfor %}
+  </ul>
+</article>
+
+{% assign chapters = site.chapters | sort: 'ref' %}
+{% for chapter in chapters %}
+  <article style="page-break-before:always;">
+    <h1 class="page-heading">
+      <h2>{{chapter.ref}} {{ chapter.title }}</h2>
+    </h1>
+    {{ chapter.content }}
+  </article>
+{% endfor %}
